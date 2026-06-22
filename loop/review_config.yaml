@@ -1,0 +1,22 @@
+min_iterations: 5
+max_iterations: 10
+timeout_seconds: 900
+approval_marker: "NO_BLOCKING_FINDINGS"
+review_scope: "loop_runner.py, review_loop.py, tests, README.md, loop/*.yaml, loop/*.md"
+fix_scope: "local workflow files and tests only"
+reviewer_command: "codex exec --cd {root} --sandbox read-only --ask-for-approval never -"
+fixer_command: "codex exec --cd {root} --sandbox workspace-write --ask-for-approval never -"
+max_changed_files: 12
+allowed_paths:
+  - .gitignore
+  - README.md
+  - loop
+  - loop_runner.py
+  - review_loop.py
+  - tests
+forbidden_paths:
+  - .env
+  - secrets
+verifier_commands:
+  - name: tests
+    command: "python3 -m unittest discover -s tests"

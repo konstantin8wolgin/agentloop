@@ -1,0 +1,17 @@
+max_attempts_per_task: 3
+max_runtime_seconds_per_task: 600
+max_changed_files: 8
+review_on_success: true
+agent_command: "codex exec --cd {root} --sandbox workspace-write --ask-for-approval never -"
+verifier_commands:
+  - name: tests
+    command: "python3 -m unittest discover -s tests"
+allowed_paths:
+  - src
+  - tests
+  - docs
+  - loop
+forbidden_paths:
+  - .git
+  - .env
+  - secrets

@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+loop/runs/
+loop/review-runs/
+loop/context/
+loop/context_manifest.json
+loop/supervisor_state.json
+loop/final_report.md
